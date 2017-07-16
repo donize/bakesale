@@ -4,33 +4,33 @@
 @import 'form';
 
 html {
-    font-size: 16px;
-    font-family: $primary-font;
-    font-weight: 300;
-    height: 100%;
-    background-color: #ffeecc;
+  font-size: 16px;
+  font-family: $primary-font;
+  font-weight: 300;
+  height: 100%;
+  background-color: #ffeecc;
 }
 
 body {
-    height: 100%;
-    //background-image: url('/images/stacked-logo.svg');
-    background-size: cover;
-    background-position: center center;
+  height: 100%;
+  //background-image: url('/images/stacked-logo.svg');
+  background-size: cover;
+  background-position: center center;
 }
 
 main {
-    transform: translateY(25%);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  transform: translateY(25%);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 p {
-    font-size: 1.25rem;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-    color: $brown;
-    line-height: 1.25;
-    font-weight: 400;
+  font-size: 1.25rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  color: $brown;
+  line-height: 1.25;
+  font-weight: 400;
 }
