@@ -2,16 +2,18 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
+import cleanCss from 'gulp-clean-css';
 const bs = require('browser-sync').create();
 
 gulp.task('styles', () => {
     gulp.src('src/css/style.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({browsers: ['last 3 versions', 'Safari 8']}))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('build/css'))
-    .pipe(bs.reload({stream: true}));
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({ browsers: ['last 3 versions', 'Safari 8'] }))
+        .pipe(sourcemaps.write())
+        .pipe(cleanCss())
+        .pipe(gulp.dest('build/css'))
+        .pipe(bs.reload({ stream: true }));
 });
 
 gulp.task('html', () => {
@@ -24,7 +26,7 @@ gulp.task('images', () => {
         .pipe(gulp.dest('build/images'))
 });
 
-gulp.task('server', function() {
+gulp.task('server', function () {
     bs.init({
         server: {
             baseDir: "./build"
