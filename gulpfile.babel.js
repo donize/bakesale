@@ -13,16 +13,16 @@ gulp.task('styles', () => {
     .pipe(autoprefixer({ browsers: ['last 3 versions', 'Safari 8'] }))
     .pipe(sourcemaps.write())
     .pipe(cleanCss())
-    .pipe(gulp.dest('build/css'))
+    .pipe(gulp.dest('docs/css'))
     .pipe(bs.reload({ stream: true }));
 });
 
 gulp.task('html', () => {
-  return gulp.src('src/*.html').pipe(gulp.dest('build'));
+  return gulp.src('src/*.html').pipe(gulp.dest('docs'));
 });
 
 gulp.task('images', () => {
-  return gulp.src('src/images/**').pipe(gulp.dest('build/images'));
+  return gulp.src('src/images/**').pipe(gulp.dest('docs/images'));
 });
 
 gulp.task('server', function() {
