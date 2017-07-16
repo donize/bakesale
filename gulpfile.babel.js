@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
-import browserSync from 'browser-sync';
+const bs = require('browser-sync').create();
 
 gulp.task('styles', () => {
     gulp.src('src/css/style.scss')
@@ -10,7 +10,8 @@ gulp.task('styles', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 3 versions', 'Safari 8']}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('build/css'));
+    .pipe(gulp.dest('build/css'))
+    .pipe(bs.reload({stream: true}));
 });
 
 gulp.task('html', () => {
@@ -24,14 +25,18 @@ gulp.task('images', () => {
 });
 
 gulp.task('server', function() {
-    browserSync.init({
+    bs.init({
         server: {
             baseDir: "./build"
         }
     });
 });
 
-gulp.task('serve', ['build', 'server']);
+gulp.task('serve', ['server'], () => {
+    gulp.watch('src/css/*.scss', ['styles']);
+    gulp.watch('src/images/**', ['images']);
+    gulp.watch('src/*.html').on('change', bs.reload);
+});
 
 gulp.task('build', ['html', 'styles', 'images']);
 
