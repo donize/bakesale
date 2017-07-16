@@ -1,5 +1,5 @@
 * To start server/livereload:
-`gulp serve`
+`yarn serve`
 
 * To get build files:
-`gulp build`
+`yarn build`
