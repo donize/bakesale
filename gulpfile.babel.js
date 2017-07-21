@@ -28,7 +28,7 @@ gulp.task('images', () => {
 gulp.task('server', function() {
   bs.init({
     server: {
-      baseDir: './src',
+      baseDir: './docs',
     },
   });
 });
